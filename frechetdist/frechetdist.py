@@ -90,19 +90,14 @@ def frdist(p,q):
     >>> frdist(P,Q)
     >>> 0
     """
-    p = np.array(p, np.float64)
-    q = np.array(q, np.float64)
 
-    len_p = len(p)
-    len_q = len(q)
-
-    if len_p == 0 or len_q == 0:
-        raise ValueError('Input curves are empty.')
-
-    if len_p != len_q or len(p[0]) != len(q[0]):
+    if p.shape != q.shape:
         raise ValueError('Input curves do not have the same dimensions.')
 
-    ca    = ( np.ones((len_p,len_q), dtype=np.float64) * -1 ) 
+    if p.shape[0] == 0 or q.shape[0] == 0:
+        raise ValueError('Input curves are empty.')
 
-    dist = _c(ca,len_p-1,len_q-1,p,q)
+    ca = -1.0 * np.ones((p.shape[0],q.shape[0]), dtype=np.float64)
+
+    dist = _c(ca, p.shape[0] - 1, q.shape[0] - 1,p,q)
     return dist

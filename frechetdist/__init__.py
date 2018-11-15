@@ -1,1 +1,1 @@
-from . import frdist
+from .frechetdist import frdist

@@ -4,7 +4,7 @@ Discrete Fréchet distance
 =========================
 
 Computes the discrete Fréchet distance between
-two curves. The Fréchet distance between two curves in a
+two n-D curves. The Fréchet distance between two curves in a
 metric space is a measure of the similarity between the curves.
 The discrete Fréchet distance may be used for approximately computing
 the Fréchet distance between two arbitrary curves, 
@@ -42,8 +42,8 @@ Function dF(P, Q): real;
 
 Parameters
 ----------
-    P : Input curve - two dimensional array of points
-    Q : Input curve - two dimensional array of points
+    P : Input curve: n rows by d dimensions
+    Q : Input curve: n rows by d dimensions
 
 Returns
 -------
